@@ -19,15 +19,25 @@
           </tr>
         </thead>
         <tbody>
-          {% for each in request_logs %}
+          {% for obj in page_obj.object_list %}
             <tr class="alert alert-primary" role="alert">
-              <td>{{ each.user.username|upper }}</td>
-              <td>{{ each.get_request_type_display|upper }}</td>
-              <td>{{ each.created }}</td>
+              <td>{{ obj.user.username|upper }}</td>
+              <td>{{ obj.get_request_type_display|upper }}</td>
+              <td>{{ obj.created }}</td>
             </tr>
           {% endfor %}
         </tbody>
       </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          {% if page_obj.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+          {% endif %}
+          {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+          {% endif %}
+        </ul>
+      </nav>
     </div>
   </div>
 </div>

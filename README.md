@@ -7,3 +7,5 @@
     pip install -r requirements.txt
 
     python mananage.py runserver
+
+Note: Pagination default to 5

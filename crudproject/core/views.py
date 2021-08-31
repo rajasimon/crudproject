@@ -2,9 +2,10 @@ from django.contrib.auth.models import User
 from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.response import Response
+from django.core.paginator import Paginator
 
 from .models import RequestLog
-from .serializers import UserSerializer, RequestLogSerializer
+from .serializers import UserSerializer
 
 
 # Create your views here.
@@ -57,4 +58,12 @@ class UserPKView(generics.RetrieveUpdateDestroyAPIView):
 
 def request_log_view(request):
     request_logs = RequestLog.objects.all()
-    return render(request, "requestlog.html", {"request_logs": request_logs})
+    paginator = Paginator(request_logs, 5)
+
+    page = request.GET.get("page", 1)
+    page_obj = paginator.get_page(page)
+    return render(
+        request,
+        "requestlog.html",
+        {"request_logs": request_logs, "page_obj": page_obj},
+    )
