@@ -1,0 +1,15 @@
+.reqGET {
+  display: block;
+}
+
+.reqPOST {
+  display: none;
+}
+
+.reqPUT {
+  display: none;
+}
+
+.reqDELETE {
+  display: none;
+}

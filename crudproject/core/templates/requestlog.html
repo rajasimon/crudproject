@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <a href="/">Homepage</a>
+      <a href="/requestlog/">Logs</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">User</th>
+            <th scope="col">Method</th>
+            <th scope="col">Created</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for each in request_logs %}
+            <tr class="alert alert-primary" role="alert">
+              <td>{{ each.user.username|upper }}</td>
+              <td>{{ each.get_request_type_display|upper }}</td>
+              <td>{{ each.created }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock content %}

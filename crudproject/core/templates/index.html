@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      {% include 'usertable.html' %}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn btn-success" id="reqGETButton">GET</button>
+      <button type="button" class="btn btn-warning" id="reqPOSTButton">POST</button>
+      <button type="button" class="btn btn-info" id="reqPUTButton">PUT</button>
+      <button type="button" class="btn btn-danger" id="reqDELETEButton">DELETE</button>
+      <button type="button" class="btn btn-primary float-end" id="reqSENDButton">SEND</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="reqGET" id="reqGET">
+        <label for="inputGETID" class="form-label">ID</label>
+        <input type="email" class="form-control" id="inputGETID" placeholder="Enter object id">
+      </div>
+      <div class="reqPOST" id="reqPOST">
+        <div>
+          <label for="inputPOSTUsername" class="form-label">Username</label>
+          <input type="text" class="form-control" id="inputPOSTUsername" placeholder="Enter username">
+        </div>
+        <div>
+          <label for="inputPOSTEmail" class="form-label">Email</label>
+          <input type="email" class="form-control" id="inputPOSTEmail" placeholder="Enter email address">
+        </div>
+        <div>
+          <label for="inputPOSTFirstName" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="inputPOSTFirstName" placeholder="Enter First Name">
+        </div>
+        <div>
+          <label for="inputPOSTLastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="inputPOSTLastName" placeholder="Enter Last Name">
+        </div>
+      </div>
+      <div class="reqPUT" id="reqPUT">
+        <label for="inputPUTID" class="form-label">ID</label>
+        <input type="text" class="form-control" id="inputPUTID" placeholder="Enter object id">
+        <div>
+          <label for="inputPUTUsername" class="form-label">Username</label>
+          <input type="text" class="form-control" id="inputPUTUsername" placeholder="Enter username">
+        </div>
+        <div>
+          <label for="inputPUTEmail" class="form-label">Email</label>
+          <input type="email" class="form-control" id="inputPUTEmail" placeholder="Enter email address">
+        </div>
+        <div>
+          <label for="inputPUTFirstName" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="inputPUTFirstName" placeholder="Enter First Name">
+        </div>
+        <div>
+          <label for="inputPUTLastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="inputPUTLastName" placeholder="Enter Last Name">
+        </div>
+      </div>
+      <div class="reqDELETE" id="reqDELETE">
+        <label for="inputDELETEID" class="form-label">ID</label>
+        <input type="text" class="form-control" id="inputDELETEID" placeholder="Enter object id">
+      </div>
+    </div>
+    <div class="col">
+      <div class="mb-3">
+        <div class="card">
+          <div class="card-body" id="responseBody">
+            This is some text within a card body.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock css %}
+
+{% block js %}
+<script src="{% static 'js/index.js' %}"></script>
+{% endblock js %}
